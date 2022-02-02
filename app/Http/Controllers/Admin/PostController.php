@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+// devo importare il model se voglio poi creare le query
 use App\Post;
 
 class PostController extends Controller
@@ -15,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        // creo la query
+        // creo la query e cio che ottengo lo salvo variabile $posts che è un array
         $posts = Post::all();
         return view('admin.posts.index', compact('posts'));
     }

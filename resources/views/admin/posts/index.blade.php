@@ -6,32 +6,21 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">ID</th>
+          <th scope="col">Title</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+        {{-- stampo con un ciclo l'array $posts --}}
+        @foreach ($posts as $post)
+          <tr>
+            <th scope="row">{{ $post->id }}</th>
+            <td>{{ $post->title }}</td>
+          </tr>
+        @endforeach
+
       </tbody>
     </table>
-    <a href="{{ route('admin.index') }}"><< Back</a>
+    <a class="btn btn-dark" href="{{ route('admin.index') }}"><< Back</a>
   </div>
 @endsection
