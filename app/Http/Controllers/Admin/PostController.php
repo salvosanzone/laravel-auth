@@ -52,8 +52,13 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+
+        // se esiste $post allora mi restituisce la view altrimenti un 404
+        if ($post) {
+            return view('admin.posts.show', compact('post'));
+        }
+        abort(404, 'Errore nella ricerca del post');
         
-        return view('admin.posts.show', compact('post'));
     }
 
     /**
