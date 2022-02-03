@@ -83,7 +83,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Qui è il sito pubblico che faremo con Vue
+                    Sito pubblico 
                 </div>
             </div>
         </div>

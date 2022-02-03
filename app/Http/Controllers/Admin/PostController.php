@@ -17,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        // creo la query e cio che ottengo lo salvo variabile $posts che è un array
+        // creo la query e cio che ottengo lo salvo nella variabile $posts che è un array
         $posts = Post::all();
         return view('admin.posts.index', compact('posts'));
     }
@@ -51,7 +51,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        
+        return view('admin.posts.show', compact('post'));
     }
 
     /**

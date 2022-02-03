@@ -26,9 +26,13 @@
                 <a class="navbar-brand" href="{{ route('home') }}">
                     Vail al sito pubblico
                 </a>
+                
+                <!-- posso accedere solo se autenticato -->
                 @auth
-                    <a href="{{ route('admin.posts.index') }}">Elenco Post</a>
+                    <a href="{{ route('admin.posts.index') }}" class="nav-link">Elenco Post</a>
                 @endauth
+                <!-- /posso accedere solo se autenticato -->
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

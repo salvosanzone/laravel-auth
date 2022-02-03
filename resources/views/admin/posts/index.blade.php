@@ -7,7 +7,7 @@
       <thead>
         <tr>
           <th scope="col">ID</th>
-          <th scope="col">Title</th>
+          <th scope="col" colspan="4">Title</th>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +16,15 @@
           <tr>
             <th scope="row">{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
+            <td>
+              <a href="{{ route('admin.posts.show', $post) }}"class="btn btn-success" scope="col">Show</a>
+            </td>
+            <td>
+              <a href=""class="btn btn-primary" scope="col">Edit</a>
+            </td>
+            <td>
+              <a href=""class="btn btn-danger" scope="col">Delete</a>
+            </td>
           </tr>
         @endforeach
 
