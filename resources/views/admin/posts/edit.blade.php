@@ -18,7 +18,7 @@
       @endif
       
 
-      <form action="{{ route('admin.posts.update', $post) }}" method="PUT">
+      <form action="{{ route('admin.posts.update', $post) }}" method="post">
         @csrf
         @method('PUT')
         <div class="mb-3">

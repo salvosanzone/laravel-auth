@@ -109,7 +109,15 @@ class PostController extends Controller
 
 
         $post->title = $form_data['title'];
-        $post->
+        $post->content = $form_data['content'];
+
+        if ($form_data['title'] != $post->title) {
+            $form_data['slug'] = Post::generateSlug($form_data['title']);
+        }
+
+        $post->save();
+
+        return redirect()->route('admin.posts.show', $post);
 
     }
 
@@ -119,8 +127,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('deleted', "Il post $post->title è stato eliminato");
     }
 }

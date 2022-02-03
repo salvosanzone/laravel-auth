@@ -24,7 +24,7 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|max:255|min:20',
+            'title' => 'required|max:255|min:2',
             'content' => 'required'
         ];
     }
