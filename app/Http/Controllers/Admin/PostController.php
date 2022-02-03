@@ -22,7 +22,7 @@ class PostController extends Controller
     public function index()
     {
         // creo la query e cio che ottengo lo salvo nella variabile $posts che è un array
-        $posts = Post::all();
+        $posts = Post::orderBy('id', 'desc')->paginate(5);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -60,9 +60,6 @@ class PostController extends Controller
 
         return redirect()->route('admin.posts.show', $new_post);
 
-
-
-
     }
 
     /**
@@ -91,7 +88,12 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        if ($post) {
+            return view('admin.posts.edit', compact('post'));
+        }
+        abort(404, 'Post non presente nel database');
     }
 
     /**
@@ -101,9 +103,14 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $form_data = $request->all();
+
+
+        $post->title = $form_data['title'];
+        $post->
+
     }
 
     /**

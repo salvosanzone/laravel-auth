@@ -20,7 +20,7 @@
               <a href="{{ route('admin.posts.show', $post) }}"class="btn btn-success" scope="col">Show</a>
             </td>
             <td>
-              <a href=""class="btn btn-primary" scope="col">Edit</a>
+              <a href="{{ route('admin.posts.edit', $post) }}"class="btn btn-primary" scope="col">Edit</a>
             </td>
             <td>
               <a href=""class="btn btn-danger" scope="col">Delete</a>
@@ -30,6 +30,7 @@
 
       </tbody>
     </table>
-    <a class="btn btn-dark" href="{{ route('admin.index') }}"><< Back</a>
+    {{ $posts->links() }}
+    <a class="btn btn-dark mt-5" href="{{ route('admin.index') }}"><< Back</a>
   </div>
 @endsection

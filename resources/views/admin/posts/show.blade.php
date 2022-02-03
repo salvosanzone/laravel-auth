@@ -10,7 +10,7 @@
           <h6>{{ $post->title }}</h6>
           <h4 class="card-subtitle mt-4">Contenuto</h4>
           <p class="card-text">{{ $post->content }}</p>
-          <a href="#" class="card-link btn btn-primary">Edit</a>
+          <a href="{{ route('admin.posts.edit', $post) }}" class="card-link btn btn-primary">Edit</a>
           <a href="#" class="card-link btn btn-danger">Delete</a>
         </div>
       </div>
