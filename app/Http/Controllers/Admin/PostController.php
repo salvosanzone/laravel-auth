@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+
+// devo importare il mio request 
+use App\Http\Requests\PostRequest;
+
 use Illuminate\Http\Request;
 
 // devo importare il model se voglio poi creare le query
@@ -29,7 +33,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -38,9 +42,27 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //
+        // mi serve per vedere quelle che sono le richieste inviate dal form
+        // dd($request->all());
+
+        // salvo in una variabile ----- $data è un array
+        $data = $request->all();
+
+        $new_post = new Post();
+
+        // adesso l'attributo title sarà uguale a cio che ho inviato con request che a sua volta ho salvato nell' array associativo $data
+        $new_post->title = $data['title'];
+        $new_post->content = $data['content'];
+        $new_post->slug = Post::generateSlug($new_post->title);
+        $new_post->save();
+
+        return redirect()->route('admin.posts.show', $new_post);
+
+
+
+
     }
 
     /**

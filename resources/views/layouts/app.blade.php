@@ -31,6 +31,9 @@
                 @auth
                     <a href="{{ route('admin.posts.index') }}" class="nav-link">Elenco Post</a>
                 @endauth
+                @auth
+                    <a href="{{ route('admin.posts.create') }}" class="nav-link">Crea un nuovo Post</a>
+                @endauth
                 <!-- /posso accedere solo se autenticato -->
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
